@@ -149,6 +149,168 @@
             "expression": "SUM(Sales[SalesAmount])"
           }
         ]
+      },
+      {
+        "name": "Date",
+        "columns": [
+          {
+            "name": "Datekey",
+            "dataType": "dateTime",
+            "sourceColumn": "Datekey"
+          },
+          {
+            "name": "FullDateLabel",
+            "dataType": "string",
+            "sourceColumn": "FullDateLabel"
+          },
+          {
+            "name": "DateDescription",
+            "dataType": "string",
+            "sourceColumn": "DateDescription"
+          },
+          {
+            "name": "CalendarYear",
+            "dataType": "int64",
+            "sourceColumn": "CalendarYear"
+          },
+          {
+            "name": "CalendarYearLabel",
+            "dataType": "string",
+            "sourceColumn": "CalendarYearLabel"
+          },
+          {
+            "name": "CalendarHalfYear",
+            "dataType": "int64",
+            "sourceColumn": "CalendarHalfYear"
+          },
+          {
+            "name": "CalendarHalfYearLabel",
+            "dataType": "string",
+            "sourceColumn": "CalendarHalfYearLabel"
+          },
+          {
+            "name": "CalendarQuarter",
+            "dataType": "int64",
+            "sourceColumn": "CalendarQuarter"
+          },
+          {
+            "name": "CalendarQuarterLabel",
+            "dataType": "string",
+            "sourceColumn": "CalendarQuarterLabel"
+          },
+          {
+            "name": "CalendarMonth",
+            "dataType": "int64",
+            "sourceColumn": "CalendarMonth"
+          },
+          {
+            "name": "CalendarMonthLabel",
+            "dataType": "string",
+            "sourceColumn": "CalendarMonthLabel"
+          },
+          {
+            "name": "CalendarWeek",
+            "dataType": "int64",
+            "sourceColumn": "CalendarWeek"
+          },
+          {
+            "name": "CalendarWeekLabel",
+            "dataType": "string",
+            "sourceColumn": "CalendarWeekLabel"
+          },
+          {
+            "name": "CalendarDayOfWeek",
+            "dataType": "int64",
+            "sourceColumn": "CalendarDayOfWeek"
+          },
+          {
+            "name": "CalendarDayOfWeekLabel",
+            "dataType": "string",
+            "sourceColumn": "CalendarDayOfWeekLabel"
+          },
+          {
+            "name": "FiscalYear",
+            "dataType": "int64",
+            "sourceColumn": "FiscalYear"
+          },
+          {
+            "name": "FiscalYearLabel",
+            "dataType": "string",
+            "sourceColumn": "FiscalYearLabel"
+          },
+          {
+            "name": "FiscalHalfYear",
+            "dataType": "int64",
+            "sourceColumn": "FiscalHalfYear"
+          },
+          {
+            "name": "FiscalHalfYearLabel",
+            "dataType": "string",
+            "sourceColumn": "FiscalHalfYearLabel"
+          },
+          {
+            "name": "FiscalQuarter",
+            "dataType": "int64",
+            "sourceColumn": "FiscalQuarter"
+          },
+          {
+            "name": "FiscalQuarterLabel",
+            "dataType": "string",
+            "sourceColumn": "FiscalQuarterLabel"
+          },
+          {
+            "name": "FiscalMonth",
+            "dataType": "int64",
+            "sourceColumn": "FiscalMonth"
+          },
+          {
+            "name": "FiscalMonthLabel",
+            "dataType": "string",
+            "sourceColumn": "FiscalMonthLabel"
+          },
+          {
+            "name": "IsWorkDay",
+            "dataType": "string",
+            "sourceColumn": "IsWorkDay"
+          },
+          {
+            "name": "IsHoliday",
+            "dataType": "int64",
+            "sourceColumn": "IsHoliday"
+          },
+          {
+            "name": "HolidayName",
+            "dataType": "string",
+            "sourceColumn": "HolidayName"
+          },
+          {
+            "name": "EuropeSeason",
+            "dataType": "string",
+            "sourceColumn": "EuropeSeason"
+          },
+          {
+            "name": "NorthAmericaSeason",
+            "dataType": "string",
+            "sourceColumn": "NorthAmericaSeason"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/TEWODROS\\SQL2022;ContosoRetailDW\",",
+                "    dbo_DimDate = Source{[Schema=\"dbo\",Item=\"DimDate\"]}[Data],",
+                "    #\"Removed Columns\" = Table.RemoveColumns(dbo_DimDate,{\"FactExchangeRate\", \"FactITMachine\", \"FactITSLA\", \"FactInventory\", \"FactOnlineSales\", \"FactSales\", \"FactSalesQuota\", \"FactStrategyPlan\", \"AsiaSeason\"})",
+                "in",
+                "    #\"Removed Columns\""
+              ]
+            }
+          }
+        ]
       }
     ],
     "annotations": [
