@@ -1,0 +1,162 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1500,
+  "model": {
+    "defaultMode": "directQuery",
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/TEWODROS\\SQL2022;ContosoRetailDW",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "TEWODROS\\SQL2022",
+            "database": "ContosoRetailDW"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "kind": "SQL",
+          "path": "tewodros\\sql2022;ContosoRetailDW",
+          "Username": "ReportUser",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "Sales",
+        "columns": [
+          {
+            "name": "SalesKey",
+            "dataType": "int64",
+            "sourceColumn": "SalesKey"
+          },
+          {
+            "name": "DateKey",
+            "dataType": "dateTime",
+            "sourceColumn": "DateKey"
+          },
+          {
+            "name": "channelKey",
+            "dataType": "int64",
+            "sourceColumn": "channelKey"
+          },
+          {
+            "name": "StoreKey",
+            "dataType": "int64",
+            "sourceColumn": "StoreKey"
+          },
+          {
+            "name": "ProductKey",
+            "dataType": "int64",
+            "sourceColumn": "ProductKey"
+          },
+          {
+            "name": "PromotionKey",
+            "dataType": "int64",
+            "sourceColumn": "PromotionKey"
+          },
+          {
+            "name": "CurrencyKey",
+            "dataType": "int64",
+            "sourceColumn": "CurrencyKey"
+          },
+          {
+            "name": "UnitCost",
+            "dataType": "decimal",
+            "sourceColumn": "UnitCost"
+          },
+          {
+            "name": "UnitPrice",
+            "dataType": "decimal",
+            "sourceColumn": "UnitPrice"
+          },
+          {
+            "name": "SalesQuantity",
+            "dataType": "int64",
+            "sourceColumn": "SalesQuantity"
+          },
+          {
+            "name": "ReturnQuantity",
+            "dataType": "int64",
+            "sourceColumn": "ReturnQuantity"
+          },
+          {
+            "name": "ReturnAmount",
+            "dataType": "decimal",
+            "sourceColumn": "ReturnAmount"
+          },
+          {
+            "name": "DiscountQuantity",
+            "dataType": "int64",
+            "sourceColumn": "DiscountQuantity"
+          },
+          {
+            "name": "DiscountAmount",
+            "dataType": "decimal",
+            "sourceColumn": "DiscountAmount"
+          },
+          {
+            "name": "TotalCost",
+            "dataType": "decimal",
+            "sourceColumn": "TotalCost"
+          },
+          {
+            "name": "SalesAmount",
+            "dataType": "decimal",
+            "sourceColumn": "SalesAmount"
+          },
+          {
+            "name": "ETLLoadID",
+            "dataType": "int64",
+            "sourceColumn": "ETLLoadID"
+          },
+          {
+            "name": "LoadDate",
+            "dataType": "dateTime",
+            "sourceColumn": "LoadDate"
+          },
+          {
+            "name": "UpdateDate",
+            "dataType": "dateTime",
+            "sourceColumn": "UpdateDate"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/TEWODROS\\SQL2022;ContosoRetailDW\",",
+                "    dbo_FactSales = Source{[Schema=\"dbo\",Item=\"FactSales\"]}[Data],",
+                "    #\"Removed Columns\" = Table.RemoveColumns(dbo_FactSales,{\"DimChannel\", \"DimCurrency\", \"DimDate\", \"DimProduct\", \"DimPromotion\", \"DimStore\"})",
+                "in",
+                "    #\"Removed Columns\""
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "TotalSales",
+            "expression": "SUM(Sales[SalesAmount])"
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "600"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
