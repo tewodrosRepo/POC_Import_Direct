@@ -118,11 +118,6 @@
             "name": "LoadDate",
             "dataType": "dateTime",
             "sourceColumn": "LoadDate"
-          },
-          {
-            "name": "UpdateDate",
-            "dataType": "dateTime",
-            "sourceColumn": "UpdateDate"
           }
         ],
         "partitions": [
