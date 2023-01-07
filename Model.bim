@@ -144,7 +144,7 @@
         ],
         "measures": [
           {
-            "name": "TotalSales",
+            "name": "TotalSalesAmt",
             "expression": "SUM(Sales[SalesAmount])"
           },
           {
