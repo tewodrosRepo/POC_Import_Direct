@@ -118,6 +118,11 @@
             "name": "LoadDate",
             "dataType": "dateTime",
             "sourceColumn": "LoadDate"
+          },
+          {
+            "name": "UpdateDate",
+            "dataType": "dateTime",
+            "sourceColumn": "UpdateDate"
           }
         ],
         "partitions": [
@@ -177,16 +182,6 @@
             "sourceColumn": "CalendarYearLabel"
           },
           {
-            "name": "CalendarHalfYear",
-            "dataType": "int64",
-            "sourceColumn": "CalendarHalfYear"
-          },
-          {
-            "name": "CalendarHalfYearLabel",
-            "dataType": "string",
-            "sourceColumn": "CalendarHalfYearLabel"
-          },
-          {
             "name": "CalendarQuarter",
             "dataType": "int64",
             "sourceColumn": "CalendarQuarter"
@@ -237,16 +232,6 @@
             "sourceColumn": "FiscalYearLabel"
           },
           {
-            "name": "FiscalHalfYear",
-            "dataType": "int64",
-            "sourceColumn": "FiscalHalfYear"
-          },
-          {
-            "name": "FiscalHalfYearLabel",
-            "dataType": "string",
-            "sourceColumn": "FiscalHalfYearLabel"
-          },
-          {
             "name": "FiscalQuarter",
             "dataType": "int64",
             "sourceColumn": "FiscalQuarter"
@@ -280,16 +265,6 @@
             "name": "HolidayName",
             "dataType": "string",
             "sourceColumn": "HolidayName"
-          },
-          {
-            "name": "EuropeSeason",
-            "dataType": "string",
-            "sourceColumn": "EuropeSeason"
-          },
-          {
-            "name": "NorthAmericaSeason",
-            "dataType": "string",
-            "sourceColumn": "NorthAmericaSeason"
           }
         ],
         "partitions": [
