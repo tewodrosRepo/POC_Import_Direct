@@ -2,7 +2,6 @@
   "name": "SemanticModel",
   "compatibilityLevel": 1500,
   "model": {
-    "defaultMode": "directQuery",
     "culture": "en-US",
     "dataSources": [
       {
@@ -147,6 +146,10 @@
           {
             "name": "TotalSales",
             "expression": "SUM(Sales[SalesAmount])"
+          },
+          {
+            "name": "TotalCostAmt",
+            "expression": "SUM(Sales[TotalCost])"
           }
         ]
       },
