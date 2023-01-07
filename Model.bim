@@ -108,16 +108,6 @@
             "name": "SalesAmount",
             "dataType": "decimal",
             "sourceColumn": "SalesAmount"
-          },
-          {
-            "name": "ETLLoadID",
-            "dataType": "int64",
-            "sourceColumn": "ETLLoadID"
-          },
-          {
-            "name": "LoadDate",
-            "dataType": "dateTime",
-            "sourceColumn": "LoadDate"
           }
         ],
         "partitions": [
